@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+table, th, td {
+    border: 1px solid grey;
+   
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+</style>
+
+    <table>
+        <tr>
+             <th>Student</th>
+                <th>Subject</th>
+        </tr>
+        <tr>
+            {% for student in stu_names %}
+            <td>{{ student.LAST_NAME }}, {{ student.FIRST_NAME }}</td>
+            {% endfor %}
+
+            {% for result in results %}
+            <td>
+                {{ result.SUBJECT }} - Score: {{ result.SCORE }}
+             </td>
+            {% endfor %}
+        </tr>
+    </table>
+
+{% endblock %}

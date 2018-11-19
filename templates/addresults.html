@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<style>
+table, th, td {
+    border: 1px solid grey;
+   
+}
+th, td {
+    padding: 5px;
+    text-align: right;
+}
+
+</style>
+
+<form action="{{ url_for('add_result') }}" method="POST">
+<table>
+    <tr>
+        <td style="font-weight:bold">Quiz:</td> 
+        <td style="text-align: left"><select name="QUIZ">
+            {% for quiz in quizzes %}
+            <option value="{{ quizzes.ID }}">{{ quizzes.ID }}</option>
+            {% endfor %}
+            </select></td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Student:</td> 
+        <td style="text-align: left"><select name="STUDENT">
+            {% for student in students %}
+            <option value="{{ students.ID }}">{{ students.ID }}</option>
+            {% endfor %}
+            </select></td>
+    <tr>
+        <td style="font-weight:bold">Grade:</td> 
+        <td><input type="number" name="GRADE"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Submit"></td>
+    </tr>
+    </table>
+</form>
+
+
+{% endblock %}

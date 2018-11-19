@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+table, th, td {
+    border: 1px solid grey;
+   
+}
+th, td {
+    padding: 5px;
+    text-align: right;
+}
+</style>
+
+<form action="{{ url_for('add_quiz') }}" method="POST">
+<table>
+	<caption>Enter Information</caption>
+	<tr>
+		<td style="font-weight:bold">Subject:</td> 
+		<td><input type="text" name="SUBJECT"></td>
+	</tr>
+	<tr>
+		<td style="font-weight:bold">Number of Questions:</td> 
+		<td><input type="text" name="NUM_QUESTIONS"></td>
+	</tr>
+	<tr>
+		<td style="font-weight:bold">Quiz Date:</td> 
+		<td><input type="text" name="QUIZ_DATE"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="text-align:left"><input type="submit" value="SUBMIT"></td>
+	</tr>
+</table>
+</form>
+
+{% endblock %}

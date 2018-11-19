@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3>Log In</h3>
+  {% if error %}
+		<p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+<form action="{{ url_for('login') }}" method=post>
+	<table>
+		<tr>
+			<td style="font-weight:bold">Username:</td>
+			<td><input type=text name=username></td>
+		</tr>
+		<tr>
+			<td style="font-weight:bold">Password:</td>
+			<td><input type=password name=password></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type=submit value=Submit></td>
+		</tr>
+	</table>
+</form>
+  
+{% endblock %}
