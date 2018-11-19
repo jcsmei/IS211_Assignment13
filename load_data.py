@@ -16,7 +16,7 @@ RESULTS = (
 )
 
 
-con = sqlite3.connect('data.db')
+con = sqlite3.connect('hw13.db')
 
 with con:
 
