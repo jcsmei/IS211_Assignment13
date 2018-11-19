@@ -7,56 +7,6 @@ import sqlite3
 from contextlib import closing
 import os
 
-STUDENTS = (
-	(1, 'George', 'Washington'),
-	(2, 'Abraham', 'Lincoln'),
-	(3, 'Thomas', 'Fefferson'),
-	(4, 'Andrew', 'Jackson'),
-	(5, 'John', 'Adams')
-)
-
-QUIZZES = (
-	(1, 'Python Programming', 10, '2018-05-05'),
-	(2, 'Data acquisition', 20, '2018-06-10'),
-	(3, 'Geographic Info Systems', 12, '2018-07-11'),
-	(4, 'Enterprise Resource Planning', 20, '2018-06-20'),
-	(5, 'Project Management', 10, '2018-07-05')
-)
-
-RESULTS = (
-	(1, 2, 65 ),
-	(1, 1, 90 ),
-	(2, 4, 89 ),
-	(2, 5, 88 ),
-	(3, 2, 85 ),
-	(3, 1, 69 ),
-	(4, 1, 68 ),
-	(4, 3, 70 ),
-	(5, 3, 85 ),
-	(5, 5, 90 )
-)
-
-
-con = sqlite3.connect('data.db')
-
-with con:
-
-    cur = con.cursor()
-    cur.execute("DROP TABLE IF EXISTS STUDENTS")
-    cur.execute("CREATE TABLE STUDENTS(ID INTEGER PRIMARY KEY," 
-                "FIRST_NAME TEXT NOT NULL, LAST_NAME TEXT NOT NULL)")
-    cur.executemany("INSERT INTO STUDENTS VALUES(?, ?, ?)", STUDENTS)
-    
-    cur.execute("DROP TABLE IF EXISTS QUIZZES")
-    cur.execute("CREATE TABLE QUIZZES(ID INTEGER PRIMARY KEY NOT NULL, SUBJECT TEXT,"
-                "NUM_QUESTIONS INTEGER, QUIZ_DATE TEXT)")
-    cur.executemany("INSERT INTO QUIZZES VALUES(?, ?, ?, ?)", QUIZZES)
-    
-    cur.execute("DROP TABLE IF EXISTS RESULTS")
-    cur.execute("CREATE TABLE RESULTS(STUD_ID INTEGER NOT NULL, QUIZ_ID INTEGER NOT NULL,"
-                "SCORE INTEGER NOT NULL)")
-    cur.executemany("INSERT INTO RESULTS VALUES(?, ?, ?)", RESULTS)
-
 app = Flask(__name__)
 app.config.from_object(__name__)
 
