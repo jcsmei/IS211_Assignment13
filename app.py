@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 app.config.update(dict(
-    DATABASE = 'data.db',
+    DATABASE = 'hw13.db',
     SECRET_KEY='development key',
     USERNAME='admin',
     PASSWORD='test'
@@ -19,7 +19,7 @@ app.config.update(dict(
 
 
 def connect_db():
-    return sqlite3.connect('data.db')
+    return sqlite3.connect('hw13.db')
 
 
 def init_db():
@@ -36,7 +36,7 @@ def before_request():
 
 @app.teardown_request
 def teardown_request(exception):
-    db = getattr(g, 'data.db', None)
+    db = getattr(g, 'hw13.db', None)
     if db is not None:
         db.close()
 
